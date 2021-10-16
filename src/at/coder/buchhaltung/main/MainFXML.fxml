@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="738.0" prefWidth="1133.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.coder.buchhaltung.main.MainController">
+   <children>
+      <MenuBar layoutX="14.0" layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Datei">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Exportieren" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="neuerKundeMenueItem" mnemonicParsing="false" onAction="#neuerKundeMenueItemClick" text="Neuer Kunde" />
+                  <MenuItem mnemonicParsing="false" text="Neue Leistung" />
+                  <MenuItem mnemonicParsing="false" text="Neue Rechnung" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="unternehmenMenuItem" mnemonicParsing="false" onAction="#onActionUnternehmensDatenAendern" text="Unternehmensdaten" />
+                  <MenuItem fx:id="menuItemProgrammBeenden" mnemonicParsing="false" onAction="#programmBeendenOnClick" text="Programm beenden" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Bearbeiten">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Einstellungen" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Hilfe">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Über" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="tabPaneTabBar" layoutY="25.0" prefHeight="524.0" prefWidth="629.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <tabs>
+          <Tab fx:id="tabKunde" text="Kunde">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="872.0">
+                     <children>
+                        <VBox layoutY="-1.0" prefHeight="155.0" prefWidth="386.0" spacing="2.0">
+                           <children>
+                              <Label text="Bezeichnung" />
+                              <TextField fx:id="textFieldBezeichnungMain" onKeyTyped="#sucheOnKeyPressed" prefHeight="25.0" prefWidth="344.0" />
+                              <HBox prefHeight="43.0" prefWidth="359.0" spacing="10.0">
+                                 <children>
+                                    <VBox prefHeight="43.0" prefWidth="396.0">
+                                       <children>
+                                          <Label text="Kontaktperson" />
+                                          <TextField fx:id="textFieldKontaktpersonMain" onKeyTyped="#sucheOnKeyPressed" prefHeight="25.0" prefWidth="328.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="42.0" prefWidth="359.0" spacing="10.0">
+                                 <children>
+                                    <VBox prefHeight="100.0" prefWidth="215.0">
+                                       <children>
+                                          <Label text="Straße" />
+                                          <TextField fx:id="textFieldStrasseMain" onKeyTyped="#sucheOnKeyPressed" prefHeight="25.0" prefWidth="207.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="100.0" prefWidth="135.0">
+                                       <children>
+                                          <Label text="PLZ" />
+                                          <TextField fx:id="textFieldPlzMain" onKeyTyped="#sucheOnKeyPressed" prefHeight="25.0" prefWidth="344.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="386.0" layoutY="-1.0" prefHeight="157.0" prefWidth="386.0" spacing="2.0">
+                           <children>
+                              <Label text="Ort" />
+                              <TextField fx:id="textFieldOrtMain" onKeyTyped="#sucheOnKeyPressed" prefHeight="25.0" prefWidth="344.0" />
+                              <Label text="UID" />
+                              <TextField fx:id="textFieldUidMain" onKeyTyped="#sucheOnKeyPressed" prefHeight="25.0" prefWidth="765.0" />
+                              <HBox prefHeight="54.0" prefWidth="346.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="buttonAenderungenUebernehmen" mnemonicParsing="false" onAction="#aendernOnClick" prefHeight="25.0" prefWidth="163.0" text="Änderungen übernehmen?" />
+                                    <Button fx:id="buttonLoeschenMain" mnemonicParsing="false" onAction="#loeschenOnClickMain" prefHeight="25.0" prefWidth="101.0" text="Neue Suche" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <TableView fx:id="tableViewAnzeige" layoutY="167.0" prefHeight="492.0" prefWidth="1133.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+                          <columns>
+                            <TableColumn fx:id="colBezeichnung" prefWidth="82.0" text="Bezeichnung" />
+                              <TableColumn fx:id="colAnrede" prefWidth="65.0" text="Anrede" />
+                            <TableColumn fx:id="colKontaktperson" prefWidth="117.0" text="Kontaktperson" />
+                              <TableColumn fx:id="colStrasse" prefWidth="67.0" text="Straße" />
+                              <TableColumn fx:id="colHausnummer" prefWidth="98.0" text="Hausnummer" />
+                              <TableColumn fx:id="colPLZ" minWidth="5.0" prefWidth="51.0" text="PLZ" />
+                              <TableColumn fx:id="colOrt" prefWidth="52.0" text="Ort" />
+                              <TableColumn fx:id="colLand" prefWidth="67.0" text="Land" />
+                              <TableColumn fx:id="colAnzahlRechnungen" prefWidth="67.0" text="Anz. Rechnungen" />
+                              <TableColumn fx:id="colUid" prefWidth="67.0" text="UID" />
+                              <TableColumn fx:id="colEmail" prefWidth="67.0" text="Email" />
+                              <TableColumn fx:id="colTelefon" prefWidth="67.0" text="Telefon" />
+                              <TableColumn fx:id="colBeschreibung" prefWidth="101.0" text="Beschreibung" />
+                              <TableColumn fx:id="colID" prefWidth="101.0" text="id" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem fx:id="itemNeueRechnung" mnemonicParsing="false" onAction="#onActionNeueRechnung" text="Neue Rechnung hinzufügen" />
+                                  <MenuItem fx:id="itemRechnungAnzeigen" mnemonicParsing="false" onAction="#onActionRechnungenAnzeigen" text="Rechnungen anzeigen" />
+                                  <MenuItem fx:id="itemKundeLoeschen" mnemonicParsing="false" onAction="#onActionKundeLoeschen" text="Kunde löschen" />
+                                    <MenuItem mnemonicParsing="false" text="Abbrechen" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                           
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Leistung">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="872.0">
+                     <children>
+                        <TableView fx:id="tableViewLeistungen" layoutY="216.0" prefHeight="611.0" prefWidth="1133.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+                          <columns>
+                            <TableColumn fx:id="colLeistungID" prefWidth="39.0" text="Id" />
+                            <TableColumn fx:id="colLeistungBezeichnung" prefWidth="821.0" text="Bezeichnung" />
+                              <TableColumn fx:id="colLeistungMenge" prefWidth="133.0" text="Menge" />
+                              <TableColumn fx:id="colLeistungPreis" minWidth="0.0" prefWidth="139.0" text="Preis" />
+                          </columns>
+                        </TableView>
+                        <VBox prefHeight="44.0" prefWidth="703.0" spacing="2.0">
+                           <children>
+                              <HBox prefHeight="38.0" prefWidth="494.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Leistungsbezeichnung" />
+                                    <TextField fx:id="textFieldLeistungSuchen" onKeyTyped="#sucheLeistungOnKeyPressed" prefHeight="25.0" prefWidth="344.0" />
+                                    <Button fx:id="buttonNeueLeistung" mnemonicParsing="false" onAction="#onActionNeueLeistung" text="+ Leistung hinzufügen" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Rechnungen">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="872.0" />
+               </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="872.0">
+                     <children>
+                        <TableView fx:id="tableViewRechnungen" layoutY="216.0" prefHeight="611.0" prefWidth="1133.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+                           <columns>
+                              <TableColumn fx:id="colRechnungRechnNr" prefWidth="104.0" text="Rechn. Nr." />
+                              <TableColumn fx:id="colRechnungKundenname" prefWidth="142.0" text="Kundenname" />
+                              <TableColumn fx:id="colRechnungNettoGesamt" prefWidth="121.0" text="Netto Gesamt" />
+                              <TableColumn fx:id="colRechnungBruttoGesamt" minWidth="0.0" prefWidth="132.0" text="Brutto Gesamt" />
+                              <TableColumn fx:id="colRechnungRechnungsdatum" minWidth="0.0" prefWidth="144.0" text="Rechnungsdatum" />
+                              <TableColumn fx:id="colRechnungErstellungsdatum" minWidth="0.0" prefWidth="147.0" text="Erstellungsdatum" />
+                              <TableColumn fx:id="colRechnungBeglichen" minWidth="0.0" prefWidth="171.0" text="Rechnung beglichen" />
+                           </columns>
+                        </TableView>
+                        <VBox prefHeight="44.0" prefWidth="889.0" spacing="2.0">
+                           <children>
+                              <HBox prefHeight="34.0" prefWidth="763.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Rechnungsnummer" />
+                                    <TextField fx:id="textFieldRechnungSuchen" onKeyTyped="#sucheLeistungOnKeyPressed" prefHeight="25.0" prefWidth="344.0" />
+                                    <Button fx:id="buttonRechnungStornieren" mnemonicParsing="false" onAction="#onActionRechnungStornieren" text="Rechnung stornieren" />
+                                    <Button fx:id="buttonRechnungAlleAnzeigen" layoutX="478.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionRechnungAlleAnzeigen" prefHeight="25.0" prefWidth="146.0" text="Alle Anzeigen" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Gebuchte Leistungen">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="872.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane layoutX="14.0" layoutY="471.0" prefHeight="25.0" prefWidth="872.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="682.0" layoutY="6.0" text="Datenbankstatus:" AnchorPane.rightAnchor="98.0" />
+            <Circle fx:id="circleDatenbankStatus" fill="#ff1f1f" layoutX="22.0" layoutY="14.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="70.0" />
+            <Label fx:id="labelDatenbankStatus" layoutX="807.0" layoutY="6.0" text="Getrennt!" AnchorPane.rightAnchor="14.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="89.0" prefWidth="691.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="at.coder.buchhaltung.leistung.LeistungHinzufuegenController">
+   <children>
+      <Button fx:id="buttonLeistungHinzufuegen" mnemonicParsing="false" onAction="#onActionNeueLeistungHinzufuegen" prefHeight="29.0" prefWidth="663.0" text="Hinzufügen" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="677.0">
+         <children>
+            <HBox prefHeight="41.0" prefWidth="677.0" spacing="10.0">
+               <children>
+                  <HBox prefHeight="80.0" prefWidth="370.0" spacing="10.0">
+                     <children>
+                        <Label text="Leistungsbezeichnung" />
+                        <TextField fx:id="textFieldNeueLeistungBezeichnung" prefHeight="25.0" prefWidth="239.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="80.0" prefWidth="158.0" spacing="10.0">
+                     <children>
+                        <Label text="Menge" />
+                        <TextField fx:id="textFieldNeueLeistungMenge" prefHeight="25.0" prefWidth="103.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="80.0" prefWidth="138.0" spacing="10.0">
+                     <children>
+                        <Label text="Preis" />
+                        <TextField fx:id="textFieldNeueLeistungPreis" prefHeight="25.0" prefWidth="89.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

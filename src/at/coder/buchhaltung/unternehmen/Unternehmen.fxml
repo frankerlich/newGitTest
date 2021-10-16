@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="544.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.coder.buchhaltung.unternehmen.UnternehmenController">
+   <children>
+      <VBox layoutX="12.0" layoutY="16.0" prefHeight="495.0" prefWidth="376.0" spacing="2.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <Label text="Unternehmensbezeichnung" />
+            <TextField fx:id="textFieldBezeichnung" onKeyTyped="#onKeyTypedBezeichnung" prefHeight="25.0" prefWidth="344.0" />
+            <HBox prefHeight="43.0" prefWidth="359.0" spacing="10.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Anrede" />
+                        <ComboBox fx:id="comboBoxAnrede" prefHeight="25.0" prefWidth="371.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="43.0" prefWidth="268.0">
+                     <children>
+                        <Label text="Kontaktperson" />
+                        <TextField fx:id="textFieldKontaktperson" onKeyTyped="#onKeyTypedKontaktperson" prefHeight="25.0" prefWidth="131.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label text="Gewerbestandort (Straße)" />
+            <TextField fx:id="textFieldStrasse" prefHeight="25.0" prefWidth="344.0" />
+            <HBox prefHeight="42.0" prefWidth="359.0" spacing="10.0">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="215.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="207.0" text="Hausnummer / Stiege / Türnummer" />
+                        <TextField fx:id="textFieldHausnummerStiegeTuernummer" prefHeight="25.0" prefWidth="344.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="42.0" prefWidth="151.0">
+                     <children>
+                        <Label text="PLZ" />
+                        <TextField fx:id="textFieldPLZ" prefHeight="25.0" prefWidth="179.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label text="Ort" />
+            <TextField fx:id="textFieldOrt" prefHeight="25.0" prefWidth="344.0" />
+            <Label text="Land" />
+            <ComboBox fx:id="comboBoxLand" prefHeight="25.0" prefWidth="388.0" />
+            <Label text="UID" />
+            <TextField fx:id="textFieldUID" prefHeight="25.0" prefWidth="344.0" />
+            <HBox prefHeight="43.0" prefWidth="359.0" spacing="10.0">
+               <children>
+                  <VBox prefHeight="43.0" prefWidth="164.0">
+                     <children>
+                        <Label text="Email" />
+                        <TextField fx:id="textFieldEmail" prefHeight="25.0" prefWidth="344.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="43.0" prefWidth="206.0">
+                     <children>
+                        <Label text="Telefon" />
+                        <TextField fx:id="textFieldTelefon" prefHeight="25.0" prefWidth="344.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label text="Beschreibung" />
+            <TextArea fx:id="textAreaBeschreibung" prefHeight="94.0" prefWidth="376.0" />
+         </children>
+      </VBox>
+      <Button fx:id="buttonAbbrechen" layoutX="234.0" layoutY="624.0" mnemonicParsing="false" onAction="#onClickbuttonAbbrechen" text="Abbrechen" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="108.0" />
+      <Button fx:id="buttonUnternehmenSpeichern" layoutX="326.0" layoutY="626.0" mnemonicParsing="false" onAction="#onClickUnternehmenSpeichern" prefHeight="25.0" prefWidth="78.0" text="Speichern" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" />
+   </children>
+</AnchorPane>

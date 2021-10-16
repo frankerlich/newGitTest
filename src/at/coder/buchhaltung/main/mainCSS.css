@@ -1,0 +1,27 @@
+.table-cell{
+	
+	-fx-text-fill: black;
+	
+}
+
+.table-row-cell:selected{
+	-fx-background-color: #A9D0F5;
+	
+}
+
+
+.table-cell-searched{
+	-fx-background-color: #F7F8E0;	
+	-fx-border-color :gray;
+	-fx-border-style: solid;
+	-fx-border-width: 0.3; 
+	-fx-text-fill: black;
+	
+}
+
+.table-view .column-header
+{
+	-fx-background-color: linear-gradient(to bottom, #f6f4f4, #d1d1d1);
+   
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 2, 0.5, 1, 1);
+}
